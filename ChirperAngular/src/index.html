@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device=width, initial-scale=1">
+ <title>Chirper</title>
+<!-- bower:css -->
+<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="lib/angular-toastr/dist/angular-toastr.css" />
+<!-- endbower -->
+
+<!-- inject:css -->
+<!-- endinject -->
+<!-- Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+
+<body>
+	<div ui-view></div>
+<!-- bower:js -->
+<script src="lib/jquery/dist/jquery.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="lib/angular-mocks/angular-mocks.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="lib/moment/moment.js"></script>
+<script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+<!-- endbower -->
+<h1></h1>
+<!-- inject:js -->
+<script src="app/app.module.js"></script>
+<script src="app/commment/comment.controller.js"></script>
+<script src="app/commment/comment.factory.js"></script>
+<script src="app/login/login.controller.js"></script>
+<script src="app/posts/posts.controller.js"></script>
+<script src="app/posts/posts.factory.js"></script>
+<script src="app/register/register.controller.js"></script>
+<script src="app/services/auth.interceptor.js"></script>
+<script src="app/services/auth.service.js"></script>
+<!-- endinject -->
+</body>
+</html>

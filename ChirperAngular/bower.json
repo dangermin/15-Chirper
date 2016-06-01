@@ -1,0 +1,31 @@
+{
+  "name": "chirper_angular",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "Dangermin Field <dangermin.field@outlook.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.5",
+    "angular-toastr": "^1.7.0",
+    "angular-mocks": "^1.5.5",
+    "angular-ui-router": "^0.3.0",
+    "moment": "^2.13.0",
+    "angular-local-storage": "^0.2.7"
+  },
+  "devDependencies": {
+    "angular-material": "^1.0.9"
+  }
+}

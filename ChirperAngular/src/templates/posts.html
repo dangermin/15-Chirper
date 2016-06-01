@@ -1,0 +1,90 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <a class="navbar-brand" ui-sref="posts">Fire Starter</a>
+    <img src="http://www.bizquest.com/_img/icon-flame.png" style="vertical-align:bottom;width:8%;" class="img-responsive" alt="" />
+  </div>
+    <div class="col-sm-3 col-md-3 pull-right">
+        <form class="navbar-form" role="search">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="q">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a ui-sref="login">Login</a></li>
+      <li><a ui-sref="register">Register</a></li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+
+<div class="container" ng-cloak>
+    <div class="writePosts col-md-6 col-md-offset-3">
+        <img src="http://www.bizquest.com/_img/icon-flame.png" style="vertical-align:bottom;width:15%;" class="img-responsive" alt="" />
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                Chirp Away
+            </div>
+            <form class="writePosts" role="form">
+                <div class="form-group panel-heading">
+                    <br>
+                    <textarea type="text" ng-model="Posts.chirp.ChirpText" placeholder="What's on your mind? {{Posts.newPost}}">
+                    <textarea/>
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true" ng-click="Posts.addPost(Posts.chirp)"></span>
+                </div>
+            </form>
+            <!--End of Write Div-->
+            <div class="displayPosts" ng-repeat="post in Posts.posts.slice().reverse()" ng-cloak>
+                <table class="table table-hover">
+                    <thead>
+                        <tbody id="ChirpBox">
+                            <div>
+                                <tr>
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true">By:{{post.User.ChirpName}}</span>
+                                    <span class="Date pull-right">{{post.DateCreated}}</span>
+                                </tr>
+                            </div>
+                            <div>
+                                <tr>
+                                    <td id="Chirp">{{post.ChirpText}}</td>
+                                </tr>
+                            </div>
+                            <div>
+			                	<span class="glyphicon glyphicon-fire pull-right" aria-hidden="true" title="Like" ng-click="Posts.likePost(post)">{{post.LikeCount}}</span>
+			                </div>
+			                <div>
+				                <table>
+				                <span class="glyphicon glyphicon-trash pull-right" aria-hidden="true" ng-click="Posts.deletePost(post, post.chirpId)" title="Delete"></span>
+					                <tbody>
+						                <div class="addingComment" ng-controller="CommentController as cm">
+					                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" ng-click="commenting = true" ng-hide="commenting" title="Comment"></span>
+					                        <label for="addingComment" ng-click="commenting = true"></label>
+					                        <textarea  ng-show="commenting"  ng-model="cm.comment">{{cm.newComment}}
+					                        </textarea>
+					                        <span class="glyphicon glyphicon-list-alt" aria-hidden="true" ng-click="cm.addComment(post.ChirpId, cm.comment); commenting = false" ng-hide="!commenting">Post Comment</span>
+					                    </div>
+				                    </tbody>
+			                    </table>
+			                    <table class="table table-hover">
+				                <thead>
+					                <tbody id="CommentBox">
+			                            <div>
+			                                <tr ng-repeat="comment in post.Comments">
+			                                    <td>{{comment.Text}}</td>
+			                                </tr>
+			                            </div>
+		                            </tbody>
+	                            </thead>
+                            </table>
+		                    </div>
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+            <!--End of Display Div-->
+        </div>
+    </div>
+</div>
